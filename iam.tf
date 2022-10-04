@@ -18,7 +18,7 @@ resource "aws_iam_policy_attachment" "role-policy-attachment" {
   name       = "ec2_attachment"
   for_each = toset([
   "arn:aws:iam::aws:policy/AmazonSSMManagedInstanceCore",
-  "arn:aws:iam::aws:policy/AmazonS3ReadonlyAccess"
+  "arn:aws:iam::aws:policy/AmazonS3FullAccess"
   ])
   roles      = [aws_iam_role.SSMRoleForEC2.name]
   policy_arn = each.value
