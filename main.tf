@@ -14,3 +14,9 @@ resource "aws_s3_bucket_object" "object1" {
   etag=filemd5("html/${each.value}")
   content_type = "text/html"
 }
+resource "aws_s3_bucket_versioning" "s3-version" {
+  bucket = aws_s3_bucket.blog.id
+  versioning_configuration {
+    status = "Enabled"
+  }
+}
