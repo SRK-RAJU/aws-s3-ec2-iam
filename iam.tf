@@ -27,6 +27,8 @@ resource "aws_iam_policy_attachment" "role-policy-attachment" {
 resource "aws_iam_instance_profile" "ec2_profile" {
   name = "ec2_profile"
   role = aws_iam_role.SSMRoleForEC2.name
+  instance_profile_arn=aws_iam_instance_profile.ec2_profile.arn
+
 }
 #resource "aws_iam_instance_profile" "this" {
 #  name = "${var.prefix}-first-profile"
