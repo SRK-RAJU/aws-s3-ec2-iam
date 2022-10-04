@@ -39,8 +39,8 @@ resource "aws_iam_instance_profile" "ec2_profile" {
 #  }
 
 resource "databricks_aws_s3_mount" "this" {
-  instance_profile=aws_iam_instance_profile.ec2_profile.arn
-#  instance_profile = aws_instance.web-pub.id
+#  instance_profile=aws_iam_instance_profile.ec2_profile.arn
+ instance_profile = aws_instance.web-pub.arn
   s3_bucket_name = aws_s3_bucket.blog.bucket
 mount_name = "experiments"
 }
