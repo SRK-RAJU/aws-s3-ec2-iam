@@ -20,6 +20,7 @@ resource "aws_s3_bucket" "blog" {
   versioning {
     enabled = true
   }
+  force_destroy = true
   tags = {
     Environment:"QA"
   }

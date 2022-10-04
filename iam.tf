@@ -28,3 +28,16 @@ resource "aws_iam_instance_profile" "ec2_profile" {
   name = "ec2_profile"
   role = aws_iam_role.SSMRoleForEC2.name
 }
+#resource "aws_iam_instance_profile" "this" {
+#  name = "${var.prefix}-first-profile"
+#  role = aws_iam_role.data_role.name
+#}
+resource "databricks_instance_profile" "ds" {
+  instance_profile_arn = aws_iam_instance_profile.ec2_profile.arn
+  }
+
+resource "databricks_aws_s3_mount" "this" {
+  instance_profile = databricks_instance_profile.ds.id
+  s3_bucket_name = aws_s3_bucket.blog.bucket
+mount_name = "experiments"
+}
