@@ -17,9 +17,7 @@ systemctl enable httpd
 EOF
 
 
-  tags =
-    {
-
+  tags = {
       Name="web-pub-raju"
 
     }
