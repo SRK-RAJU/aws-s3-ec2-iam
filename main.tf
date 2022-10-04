@@ -1,6 +1,15 @@
 provider "aws" {
   region =var.region
 }
+
+terraform {
+  required_providers {
+    databricks = {
+      source  = "databricks/databricks"
+      version = "1.4.0"
+    }
+  }
+}
 resource "aws_s3_bucket" "blog" {
   bucket = var.bucket_name
   acl="private"
