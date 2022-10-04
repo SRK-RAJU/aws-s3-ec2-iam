@@ -20,7 +20,7 @@ resource "aws_iam_policy_attachment" "role-policy-attachment" {
   "arn:aws:iam::aws:policy/AmazonSSMManagedInstanceCore",
   "arn:aws:iam::aws:policy/AmazonS3ReadonlyAccess"
   ])
-  role      = [aws_iam_role.SSMRoleForEC2.name]
+  roles      = [aws_iam_role.SSMRoleForEC2.name]
   policy_arn = each.value
 }
 
